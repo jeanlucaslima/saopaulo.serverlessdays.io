@@ -5,11 +5,13 @@ import FAQ from '../components/FAQ.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import Sponsors from '../components/Sponsors.astro'
+import Team from '../components/Team.astro'
 ---
 
 <DefaultLayout title="ServerlessDays SP 2023">
   <Hero />
-  <section class="my-32">
+  <!-- <section class="my-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Features</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
@@ -59,17 +61,18 @@ import ContentMedia from '../components/ContentMedia.astro'
       navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
       reaching WCAG AA compliance.
     </p>
-  </ContentMedia>
+  </ContentMedia> -->
   <FAQ />
-  <section class="mt-32 mb-32">
+  <!-- <section class="mt-32 mb-32">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
+      <h2 class="mb-16 text-6xl">Números</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="130" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
+        <Counter count="1" title="Dia" sub="de evento" />
+        <Counter count="1" title="Trilha" sub="de conhecimento" />
+        <Counter count="250" title="Pessoas" sub="esperadas no evento" />
       </div>
     </div>
-  </section>
+  </section> -->
+  <Sponsors/>
+  <Team/>
 </DefaultLayout>
