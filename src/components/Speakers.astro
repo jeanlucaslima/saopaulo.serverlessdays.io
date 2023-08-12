@@ -1,0 +1,48 @@
+  <section class="mt-32 mb-32">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Palestrantes</h2>
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+          <div class="center text-center">
+            <div class="foto"><a href="https://www.linkedin.com/in/ryanjonesirl/" target="_blank"><img src={(await import("/ryan-jones-photo.jpeg")).default}/></a></div>
+            <p class="text-2xl font-semibold">Ryan Jones</p>
+            <p class="text-1xl">Founder @ Serverless Guru</p>
+          </div>
+          <div class="center text-center">
+            <div class="foto"><a href="https://www.linkedin.com/in/ben-pollard-139bb5150/" target="_blank"><img src={(await import("../assets/img/foto-ben-pollard.png")).default}/></a></div>
+            <p class="text-2xl font-semibold">Ben Pollard</p>
+            <p class="text-1xl">Software developer @ aleios</p>
+          </div>
+          <div class="center text-center">
+            <div class="foto"><a href="https://www.linkedin.com/in/robertosousa01/" target="_blank"><img src={(await import("../assets/img/foto-roberto-alves.jpeg")).default}/></a></div>
+            <p class="text-2xl font-semibold">Roberto Alves</p>
+            <p class="text-1xl">Coordinator of Technology and Digital Products @ Hospital Israelita Albert Einstein</p>
+          </div>
+          <div class="center text-center">
+            <div class="foto"><a href="https://www.linkedin.com/in/marcos-vin%C3%ADcius-219b6a171/" target="_blank"><img src={(await import("../assets/img/foto-marcos-vinicius.jpeg")).default}/></a></div>
+            <p class="text-2xl font-semibold">Marcos Vinícius</p>
+            <p class="text-1xl">Lead Software Engineer @ Hospital Israelita Albert Einstein</p>
+          </div>
+      </div>
+      <div class="center text-center">
+        <p class="mt-16 text-2xl font-semibold">Aguardem novos palestrantes em breve...</p>
+      </div>
+    </div>
+  </section>
+
+  <style lang="scss">
+    .foto {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15em;
+    }
+
+    .foto img {
+      height: 15em;
+    }
+
+    .center {
+      display: grid;
+      justify-content: center;
+    }
+  </style>
