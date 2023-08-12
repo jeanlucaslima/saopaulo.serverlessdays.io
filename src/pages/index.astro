@@ -7,6 +7,7 @@ import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
 import Sponsors from '../components/Sponsors.astro'
 import Team from '../components/Team.astro'
+import Speakers from '../components/Speakers.astro'
 ---
 
 <DefaultLayout title="ServerlessDays SP 2023">
@@ -78,11 +79,12 @@ import Team from '../components/Team.astro'
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
         <Counter count="1" title="Dia" sub="de evento" />
         <Counter count="250" title="Pessoas" sub="esperadas no evento" />
-        <Counter count="10" title="Palestrantes" sub="sendo 2 internacionais" />
+        <Counter count="11" title="Palestrantes" sub="sendo 2 internacionais" />
         <Counter count="6" title="Horas" sub="de conteúdo" />
       </div>
     </div>
   </section>
+  <Speakers/>
   <Sponsors/>
   <Team/>
 </DefaultLayout>
