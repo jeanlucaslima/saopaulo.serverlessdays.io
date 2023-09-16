@@ -72,14 +72,19 @@ import Speakers from '../components/Speakers.astro'
       Com uma estrutura para até 300 pessoas, o Salão Nobre da Música Brasileira, será o espaço dedicado ao primeiro ServerlessDays da América Latina.
     </p>
   </ContentMedia>
-  <FAQ />
+  <ContentMedia imgSrc="/evandro-hero.jpg">
+    <h2>AWS Serverless Hero no evento</h2>
+    <p class="text-2xl">
+      Evandro Pires é o primeiro Serverless Hero reconhecido pela AWS na América Latina. Ele é o líder da organização do Serverless Days São Paulo e estará no evento para conduzir todo o cerimonial sendo o facilitador dos conteúdos e de networking.
+    </p>
+  </ContentMedia>
   <section class="mt-32 mb-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Números</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
         <Counter count="1" title="Dia" sub="de evento" />
         <Counter count="250" title="Pessoas" sub="esperadas no evento" />
-        <Counter count="11" title="Palestrantes" sub="sendo 2 internacionais" />
+        <Counter count="12" title="Palestrantes" sub="sendo 2 internacionais" />
         <Counter count="6" title="Horas" sub="de conteúdo" />
       </div>
     </div>
@@ -87,4 +92,5 @@ import Speakers from '../components/Speakers.astro'
   <Speakers/>
   <Sponsors/>
   <Team/>
+  <FAQ />
 </DefaultLayout>
