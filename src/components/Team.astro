@@ -1,45 +1,69 @@
-  <section class="mt-32 mb-32">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Time da organização</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/epiresdasilva/" target="_blank"><img src={(await import("../assets/img/foto-evandro.jpg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Evandro Pires</p>
-            <p class="text-1xl">Líder do evento</p>
+---
+const teamMembers = [
+  {
+    name: 'Evandro Pires',
+    role: 'Líder do evento',
+    linkedin: 'https://www.linkedin.com/in/epiresdasilva/',
+    image: 'src/assets/img/foto-evandro.jpg',
+  },
+  {
+    name: 'Madilene da Silveira',
+    role: 'Organização',
+    linkedin: 'https://www.linkedin.com/in/madilene-silva-1530261b7/',
+    image: 'src/assets/img/foto-madilene.jpg',
+  },
+  {
+    name: 'Willian Peixoto',
+    role: 'Organização',
+    linkedin: 'https://www.linkedin.com/in/peixotowill/',
+    image: 'src/assets/img/foto-will.jpeg',
+  },
+  // Adicione mais membros conforme necessário
+]
+---
+
+<section class="mb-32 mt-32">
+  <div class="container">
+    <h2 class="mb-16 text-6xl">Time da organização</h2>
+    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+      {
+        teamMembers.map((member) => (
+          <div class="center text-center" key={member.name}>
+            <div class="foto">
+              <a href={member.linkedin} target="_blank">
+                <img src={member.image} alt={`Foto de ${member.name}`} />
+              </a>
+            </div>
+            <p class="text-2xl font-semibold">{member.name}</p>
+            <p class="text-1xl">{member.role}</p>
           </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/madilene-silva-1530261b7/" target="_blank"><img src={(await import("../assets/img/foto-madilene.jpg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Madilene da Silveira</p>
-            <p class="text-1xl">Organização</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/jeanlucaslima/" target="_blank"><img src={(await import("../assets/img/foto-jean-lucas.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Jean Lucas Lima</p>
-            <p class="text-1xl">Organização</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/raphamoura/" target="_blank"><img src={(await import("../assets/img/foto-raphael.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Raphael Moura</p>
-            <p class="text-1xl">Organização</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/peixotowill/" target="_blank"><img src={(await import("../assets/img/foto-willian.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Willian Peixoto</p>
-            <p class="text-1xl">Organização</p>
-          </div>
-      </div>
+        ))
+      }
     </div>
-  </section>
+  </div>
 
   <style lang="scss">
     .foto {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 15em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16em;
+      width: 16em;
+      padding: 0.5em;
+      overflow: hidden;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .foto img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
     .center {
       display: grid;
       justify-content: center;
     }
   </style>
+</section>

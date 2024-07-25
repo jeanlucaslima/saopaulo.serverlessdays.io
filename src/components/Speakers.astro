@@ -1,95 +1,56 @@
-  <section id="Palestrantes" class="mt-32 mb-32">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Palestrantes</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/ryanjonesirl/" target="_blank"><img src={(await import("/ryan-jones-photo.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Ryan Jones</p>
-            <p class="text-1xl">Founder @ Serverless Guru</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/ben-pollard-139bb5150/" target="_blank"><img src={(await import("../assets/img/foto-ben-pollard.png")).default}/></a></div>
-            <p class="text-2xl font-semibold">Ben Pollard</p>
-            <p class="text-1xl">Software developer @ aleios</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/robertosousa01/" target="_blank"><img src={(await import("../assets/img/foto-roberto-alves.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Roberto Alves</p>
-            <p class="text-1xl">Coordinator of Technology and Digital Products @ Hospital Israelita Albert Einstein</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/marcos-vin%C3%ADcius-219b6a171/" target="_blank"><img src={(await import("../assets/img/foto-marcos-vinicius.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Marcos Vinícius</p>
-            <p class="text-1xl">Lead Software Engineer @ Hospital Israelita Albert Einstein</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/bianca-smota/" target="_blank"><img src={(await import("../assets/img/foto-bianca.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Bianca Mota</p>
-            <p class="text-1xl">Startup Solutions Architect @ AWS</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/leticiadornelas/" target="_blank"><img src={(await import("../assets/img/foto-leticia.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Letícia Dornelas</p>
-            <p class="text-1xl">Solutions Architect @ AWS</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/guidr/" target="_blank"><img src={(await import("../assets/img/foto-guilherme.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Guilherme Dalla Rosa</p>
-            <p class="text-1xl">CTO e co-founder @ MerCloud</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/ricardo-bueno-moreira/" target="_blank"><img src={(await import("../assets/img/foto-ricardo.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Ricardo Moreira</p>
-            <p class="text-1xl">Software Engineering Manager @ Azion</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/alexandre-tavares/" target="_blank"><img src={(await import("../assets/img/foto-alexandre.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Alexandre Tavares</p>
-            <p class="text-1xl">Coordenador de dados @ Cogna Educação</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/paragao/" target="_blank"><img src={(await import("../assets/img/foto-paulo.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Paulo Aragão</p>
-            <p class="text-1xl">Principal Solutions Architect @ AWS</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/tiagokrebs/" target="_blank"><img src={(await import("../assets/img/foto-tiago.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Tiago Krebs</p>
-            <p class="text-1xl">Data Platform Engineering Manager @ Azion</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/alanmaraya/" target="_blank"><img src={(await import("../assets/img/foto-alan.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Alan Araya</p>
-            <p class="text-1xl">CTO @ Grupo Regazzo</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/carneirobruno/" target="_blank"><img src={(await import("../assets/img/foto-bruno.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Bruno Carneiro</p>
-            <p class="text-1xl">Staff Software Engineer @ Base39</p>
-          </div>
-          <div class="center text-center">
-            <div class="foto"><a href="https://www.linkedin.com/in/alessandrocauduro/" target="_blank"><img src={(await import("../assets/img/foto-alessandro.jpeg")).default}/></a></div>
-            <p class="text-2xl font-semibold">Alessandro Cauduro</p>
-            <p class="text-1xl">Chief Developer Experience Officer (CDXO) @ Azion</p>
-          </div>
-      </div>
-    </div>
-  </section>
+---
+import { speakers, cfpAvailable } from '../data/speakersData.js'
+const hasSpeakers = speakers.length > 0
 
-  <style lang="scss">
-    .foto {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 15em;
-    }
+// Preload images using import.meta.glob
+const images = import.meta.glob('../assets/img/*', { eager: true })
+---
 
-    .foto img {
-      height: 15em;
+<section id="Palestrantes" class="mb-32 mt-32">
+  <div class="container">
+    <h2 class="mb-16 text-6xl">Palestrantes</h2>
+    {
+      hasSpeakers ? (
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+          {speakers.map((speaker) => (
+            <div class="center text-center" key={speaker.name}>
+              <div class="foto">
+                <a href={speaker.linkedin} target="_blank">
+                  <img src={images[speaker.image].default} alt={`Foto de ${speaker.name}`} />
+                </a>
+              </div>
+              <p class="text-2xl font-semibold">{speaker.name}</p>
+              <p class="text-1xl">{speaker.title}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center">
+          {cfpAvailable ? (
+            <p class="text-2xl">As inscrições para palestrantes estão abertas! Envie sua proposta agora.</p>
+          ) : (
+            <p class="text-2xl">Em breve teremos a lista de palestrantes. Fique ligado!</p>
+          )}
+        </div>
+      )
     }
+  </div>
+</section>
 
-    .center {
-      display: grid;
-      justify-content: center;
-    }
-  </style>
+<style lang="scss">
+  .foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15em;
+  }
+
+  .foto img {
+    height: 15em;
+  }
+
+  .center {
+    display: grid;
+    justify-content: center;
+  }
+</style>

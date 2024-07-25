@@ -1,88 +1,95 @@
-  <section class="mt-32 mb-32">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Patrocinadores</h2>
-      <div class="centralized-section">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3">
-          <div class="logo"><a href="https://www.serverlessguru.com/"><img class="logo-platinum" src={(await import("../assets/img/Logo-Serverless-Guru.svg")).default}/></a></div>
-          <div class="logo"><a href="https://www.azion.com/"><img class="logo-platinum" src={(await import("../assets/img/logo-azion.svg")).default}/></a></div>
-          <div class="logo"><a href="https://aws.amazon.com/"><img class="logo-platinum" src={(await import("../assets/img/logo-aws.svg")).default}/></a></div>
-        </div>
-      </div>
-      <div class="animate center text-center">
-        <p class="text-2xl font-semibold">Platinum</p>
-      </div>
-      <hr class="separator" />
-      <div class="centralized-section">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-2">
-          <div class="logo"><a href="https://elastic.co"><img class="logo-gold" src={(await import("../assets/img/logo-elastic.png")).default}/></a></div>
-          <div class="logo"><a href="https://www.selectsolucoes.com.br/"><img class="logo-gold" src={(await import("../assets/img/logo-select.png")).default}/></a></div>
-        </div>
-      </div>
-      <div class="animate center text-center">
-        <p class="text-2xl font-semibold">Gold</p>
-      </div>
-      <hr class="separator" />
-      <div class="centralized-section">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-6">
-          <div class="logo"><a href="https://cadmus.com.br/"><img class="logo-community" src={(await import("../assets/img/logo-cadmus.png")).default}/></a></div>
-          <div class="logo"><a href="https://www.base39.com.br/"><img class="logo-community" src={(await import("../assets/img/logo-base39.png")).default}/></a></div>
-          <div class="logo"><a href="https://bwsolucoes.com.br/"><img class="logo-community" src={(await import("../assets/img/logo-bw.png")).default}/></a></div>
-          <div class="logo"><a href="https://regazzo.com.br/"><img class="logo-community" src={(await import("../assets/img/logo-regazzo.png")).default}/></a></div>
-          <div class="logo"><a href="https://wmsonline.com.br/"><img class="logo-community" src={(await import("../assets/img/logo-smartgo.png")).default}/></a></div>
-          <div class="logo"><a href="https://bohr.io/"><img class="logo-community" src={(await import("../assets/img/logo-bohr.png")).default}/></a></div>
-        </div>
-      </div>
-      <div class="animate center text-center">
-        <p class="text-2xl font-semibold">Community</p>
-      </div>
-      <hr class="separator" />
-      <div class="centralized-section">
-        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-            <div class="logo"><a href="https://semservidor.com.br/"><img class="logo-apoio" src={(await import("../assets/img/logo-sem-servidor.jpeg")).default}/></a></div>
-            <div class="logo"><a href="https://www.cloudstorm.academy/"><img class="logo-apoio" src={(await import("../assets/img/logo-cloud-storm.png")).default}/></a></div>
-            <div class="logo"><a href="https://aleios.com/"><img class="logo-apoio" src={(await import("../assets/img/logo-aleios.png")).default}/></a></div>
-            <div class="logo"><a href="https://mercloud.io/"><img class="logo-apoio" src={(await import("../assets/img/logo-mercloud.png")).default}/></a></div>
-        </div>
-      </div>
-      <div class="animate center text-center">
-        <p class="text-2xl font-semibold">Apoio</p>
-      </div>
-  </div>
-  </section>
+---
+import { sponsors, hasSponsors } from '../data/sponsorsData.js'
 
-  <style lang="scss">
-    .logo-platinum {
-      width: 30em;
-      max-height: 8em;
+// Preload images using import.meta.glob
+const images = import.meta.glob('../assets/img/*', { eager: true })
+
+const renderSponsors = (level, title, className) => {
+  if (sponsors[level].length === 0) {
+    return null
+  }
+
+  return (
+    <>
+      <div class="centralized-section">
+        <div
+          class={`grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-${
+            level === 'community' ? 6 : level === 'apoio' ? 4 : 3
+          }`}
+        >
+          {sponsors[level].map((sponsor) => (
+            <div class="logo" key={sponsor.name}>
+              <a href={sponsor.url} target="_blank">
+                <img class={`logo-${className}`} src={images[sponsor.image].default} alt={`Logo ${sponsor.name}`} />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="animate center text-center">
+        <p class="text-2xl font-semibold">{title}</p>
+      </div>
+      <hr class="separator" />
+    </>
+  )
+}
+---
+
+<section class="mb-32 mt-32">
+  <div class="container">
+    <h2 class="mb-16 text-6xl">Patrocinadores</h2>
+    {
+      hasSponsors ? (
+        <>
+          {renderSponsors('platinum', 'Platinum', 'platinum')}
+          {renderSponsors('gold', 'Gold', 'gold')}
+          {renderSponsors('community', 'Community', 'community')}
+          {renderSponsors('apoio', 'Apoio', 'apoio')}
+        </>
+      ) : (
+        <div class="text-center">
+          <p class="text-2xl">
+            Estamos em busca de patrocinadores! Se você está interessado, entre em contato conosco.
+          </p>
+        </div>
+      )
     }
-    .logo-gold {
-      width: 15em;
-    }
-    .logo-community {
-      max-height: 6em;
-      max-width: 10em;
-    }
-    .logo-apoio {
-      width: 5em;
-    }
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 8em;
-    }
-    .center {
-      display: grid;
-      justify-content: center;
-    }
-    .centralized-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .separator {
-      border: none;
-      border-top: 1px dotted gray;
-      margin: 40px 0;
-    }
-  </style>
+  </div>
+</section>
+
+<style lang="scss">
+  .logo-platinum {
+    width: 30em;
+    max-height: 8em;
+  }
+  .logo-gold {
+    width: 15em;
+  }
+  .logo-community {
+    max-height: 6em;
+    max-width: 10em;
+  }
+  .logo-apoio {
+    width: 5em;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8em;
+  }
+  .center {
+    display: grid;
+    justify-content: center;
+  }
+  .centralized-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .separator {
+    border: none;
+    border-top: 1px dotted gray;
+    margin: 40px 0;
+  }
+</style>

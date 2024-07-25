@@ -2,83 +2,54 @@
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import FAQ from '../components/FAQ.astro'
-import Feature from '../components/Feature.astro'
+
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
-import Sponsors from '../components/Sponsors.astro'
+//import Sponsors from '../components/Sponsors.astro'
 import Team from '../components/Team.astro'
 import Speakers from '../components/Speakers.astro'
 import Grade from '../components/Grade.astro'
+import Temas from '../components/Temas.astro'
+import Year2023 from '../components/Year2023.astro'
 ---
 
-<DefaultLayout title="ServerlessDays SP 2023">
+<DefaultLayout title="ServerlessDays SP 2024">
   <Hero />
-  <!-- <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia> -->
 
-  <ContentMedia imgSrc="/ryan-jones-photo.jpeg">
-    <h2>Keynote internacional</h2>
+  <!-- <ContentMedia imgSrc="">
+    <h2>Keynote TBD</h2>
     <p class="text-2xl">
-      Ryan Jones é o fundador da Serverless Guru, uma empresa de consultoria que ajuda a liderar a revolução da computação Serverless. Ryan é reconhecido pela sua contribuição com a comunidade de tecnologia e por esse motivo faz parte do grupo AWS Community Builders no tema Serverless.
     </p>
-    <p class="text-2xl">      
-      Ryan vai contar sua experiência e aprendizado à frente de sua empresa que é dedicada ao mundo Serverless.
+    <p class="text-2xl">
     </p>
   </ContentMedia>
-  <ContentMedia imgSrc="/gran-estanplaza.jpg" reverseImg={true}>
+  -->
+  <ContentMedia imgSrc="/cubo-itau.jpeg" reverseImg={true}>
     <h2>Local</h2>
     <p class="text-2xl">
-      O local escolhido para esse grande evento é o <b>Gran Estanplaza Berrini</b>, um hotel 5 estrelas com localização privilegiada, à 250 metros de uma estação de metrô, é uma região acostumada a receber grandes eventos.
-      
-      Com uma estrutura para até 300 pessoas, o Salão Nobre da Música Brasileira, será o espaço dedicado ao primeiro ServerlessDays da América Latina.
+      O local escolhido para esse grande evento é o <b>O Cubo Itaú</b>, localizado na Alameda Vicente Pinzon, 54, é um
+      dos principais hubs de inovação e tecnologia de São Paulo. O espaço é ideal para a realização de eventos,
+      oferecendo infraestrutura moderna e um ambiente colaborativo.
+
+      <br /> A localização do Cubo Itaú proporciona grande facilidade de mobilidade. Transporte Público: Diversas linhas
+      de ônibus passam pela Alameda Vicente Pinzon, garantindo um acesso rápido e conveniente. A estação de trem Vila Olímpia,
+      que faz parte da linha 9-Esmeralda, está a poucos minutos de distância, facilitando ainda mais o acesso ao local.
     </p>
-    <p class="text-2xl refeicoes">
-      Dois coffee breaks e <b>ALMOÇO</b> inclusos!
-    </p>
+    <p class="refeicoes text-2xl">Dois Coffe breaks inclusos inclusos!</p>
   </ContentMedia>
   <ContentMedia imgSrc="/evandro-hero.jpg">
     <h2>AWS Serverless Hero no evento</h2>
     <p class="text-2xl">
-      Evandro Pires é o primeiro Serverless Hero reconhecido pela AWS na América Latina. Ele é o líder da organização do Serverless Days São Paulo e estará no evento para conduzir todo o cerimonial sendo o facilitador dos conteúdos e de networking.
+      Evandro Pires é o primeiro Serverless Hero reconhecido pela AWS na América Latina. Ele é o líder da organização do
+      Serverless Days São Paulo e estará no evento para conduzir todo o cerimonial sendo o facilitador dos conteúdos e
+      de networking.
     </p>
   </ContentMedia>
-  <Grade/>
-  <Speakers/>
-  <section class="my-32">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Temas das palestras</h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-        <Feature icon="mdi:tools" title="DevTools">
-          Ferramental para desenvolvimento para melhorar a experiência do desenvolvedor serverless.
-        </Feature>
-        <Feature icon="mdi:security" title="Segurança">
-          Práticas para aumentar a segurança no desenvolvimento de aplicações serverless.
-        </Feature>
-        <Feature icon="mdi:account-view" title="Observabilidade">
-          Técnicas e ferramental para maximizar a capacidade de observabilidade com serverless.
-        </Feature>
-        <Feature icon="mdi:database" title="BigData">
-          Desenvolvimento de solução de BigData totalmente com serverless.
-        </Feature>
-        <Feature icon="mdi:gear" title="Arquitetura">
-          Práticas, serviços e técnicas arquiteturais para aplicar com serverless.
-        </Feature>
-        <Feature icon="mdi:company" title="Cases reais">
-          Cenários reais de empresas que estão utilizando serverless no dia a dia.
-        </Feature>
-        <Feature icon="mdi:strategy" title="Gestão">
-          Debates e insights para estratégia com serverless com foco para redução de custos.
-        </Feature>
-      </div>
-    </div>
-  </section>
-  <Sponsors/>
+  <Grade />
+  <Speakers />
+  <!--
+  <Temas />
+  <Sponsors />
   <section class="mt-32 mb-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Números</h2>
@@ -90,7 +61,9 @@ import Grade from '../components/Grade.astro'
       </div>
     </div>
   </section>
-  <Team/>
+  -->
+  <Year2023 />
+  <Team />
   <FAQ />
 </DefaultLayout>
 
